@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listofMovieFragment"
-        android:name="ru.alexleru.movieshustov.ListofMovieFragment"
+        android:name="ru.alexleru.movieshustov.fragment.ListofMovieFragment"
         android:label="fragment_listof_movie"
         tools:layout="@layout/fragment_listof_movie" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailofMovieFragment"
-        android:name="ru.alexleru.movieshustov.DetailofMovieFragment"
+        android:name="ru.alexleru.movieshustov.fragment.DetailofMovieFragment"
         android:label="fragment_detailof_movie"
         tools:layout="@layout/fragment_detailof_movie" />
 </navigation>
