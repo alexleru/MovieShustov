@@ -1,4 +1,4 @@
-package ru.alexleru.gims.questions.database
+package ru.alexleru.movieshustov.database
 
 import android.content.Context
 import androidx.room.Database

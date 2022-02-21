@@ -33,7 +33,7 @@ class ListofMovieAdapter : RecyclerView.Adapter<ListofMovieAdapter.ListofMovieVi
     override fun onBindViewHolder(holder: ListofMovieViewHolder, position: Int) {
         val item = listOfMovie[position]
         with(holder) {
-            name.text = item.originalTitle
+            name.text = item.title
             yearText.text = item.year()
             Picasso.get().load(item.getFullImageUrl()).into(poster)
         }

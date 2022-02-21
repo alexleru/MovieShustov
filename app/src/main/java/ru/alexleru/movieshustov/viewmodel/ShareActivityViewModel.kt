@@ -1,12 +1,12 @@
-package ru.alexleru.gims.questions.viewmodel
+package ru.alexleru.movieshustov.viewmodel
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import ru.alexleru.gims.questions.api.ApiFactory
-import ru.alexleru.gims.questions.database.AppDatabase
+import ru.alexleru.movieshustov.api.ApiFactory
+import ru.alexleru.movieshustov.database.AppDatabase
 
 class ShareActivityViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -18,10 +18,24 @@ class ShareActivityViewModel(application: Application) : AndroidViewModel(applic
         loadData()
     }
 
-    private fun loadData() {
+    fun loadData() {
         val disposable = ApiFactory.apiService.getPopularMovie()
             .subscribeOn(Schedulers.io())
             .subscribe({
+                db.gimsDao().deleteAll()
+                db.gimsDao().insertMovieList(it.results)
+            }, {
+                Log.e("Error", it.message.toString())
+            })
+        compositeDisposable.add(disposable)
+    }
+
+    fun searchData(text: String) {
+        val disposable = ApiFactory.apiService.getSearchMovie(search = text)
+            .doOnError {  }
+            .subscribeOn(Schedulers.io())
+            .subscribe({
+                db.gimsDao().deleteAll()
                 db.gimsDao().insertMovieList(it.results)
             }, {
                 Log.e("Error", it.message.toString())

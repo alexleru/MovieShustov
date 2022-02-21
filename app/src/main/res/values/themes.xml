@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MovieShustov" parent="Theme.AppCompat.NoActionBar">
+    <style name="Theme.MovieShustov" parent="Theme.AppCompat.Light">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/accent_blue</item>
         <item name="colorPrimaryVariant">@color/second_blue</item>
